@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        />
+
+    <TextView
+        android:id="@+id/yourTicketsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Tickets:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/welcome"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/yourTicket1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicketsTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/yourTicket2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket1"
+        app:layout_constraintLeft_toLeftOf="@+id/yourTicket1"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/yourTicket3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket2"
+        app:layout_constraintLeft_toLeftOf="@+id/yourTicket2"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/yourTicket4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket3"
+        app:layout_constraintLeft_toLeftOf="@+id/yourTicket3"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/buyTickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy Tickets"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="70dp"
+        />
+
+
+
+
+
+    <Button
+        android:id="@+id/signOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="80dp"
+        />
+
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

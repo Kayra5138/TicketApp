@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "958984625365",
+    "project_id": "unisannio-c34e4",
+    "storage_bucket": "unisannio-c34e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958984625365:android:4739fc1287c86231d1565c",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958984625365-krjgo62sbpgetes0rbj9gim09ag41apn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9RxdmYAMyxqGbfZsYsZnqVz9NF-QQIjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958984625365-krjgo62sbpgetes0rbj9gim09ag41apn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
