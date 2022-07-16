@@ -21,6 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class EventList extends AppCompatActivity implements View.OnClickListener{
@@ -29,7 +32,7 @@ public class EventList extends AppCompatActivity implements View.OnClickListener
     RecyclerView recyclerView;
     MyAdapter myAdapter;
     ArrayList<Event> list;
-    private TextView yourTickets;
+    private TextView yourTickets, artistTv, dateTv, priceTv;
     private FirebaseUser user;
     private DatabaseReference referenceEvents, referenceUsers;
     private String userID;
@@ -39,6 +42,13 @@ public class EventList extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
+
+        artistTv = (TextView) findViewById(R.id.artist);
+        artistTv.setOnClickListener(this);
+        dateTv = (TextView) findViewById(R.id.date);
+        dateTv.setOnClickListener(this);
+        priceTv = (TextView) findViewById(R.id.price);
+        priceTv.setOnClickListener(this);
 
         recyclerView = findViewById(R.id.eventsRecycler);
         referenceEvents = FirebaseDatabase.getInstance().getReference("Events");
@@ -53,12 +63,9 @@ public class EventList extends AppCompatActivity implements View.OnClickListener
         referenceEvents.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-
                     Event event = dataSnapshot.getValue(Event.class);
                     list.add(event);
-
                 }
                 myAdapter.notifyDataSetChanged();
             }
@@ -68,58 +75,91 @@ public class EventList extends AppCompatActivity implements View.OnClickListener
 
             }
         });
+        artistTv.setText("Artist >");
         yourTickets = (TextView) findViewById(R.id.yourTickets);
         yourTickets.setOnClickListener(this);
     }
 
 
-//        buyTicket1 = (TextView) findViewById(R.id.buyTicket1);
-//        buyTicket1.setOnClickListener(this);
-
+    boolean sortByArtist = true;
+    boolean sortByDate = false;
+    boolean sortByPrice = false;
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.artist:
+                sortByDate = false;
+                sortByPrice = false;
+                if(sortByArtist){
+                    sortByArtist = false;
+                    Collections.reverse(list);
+                    artistTv.setText("Artist <");
+                    dateTv.setText("Date");
+                    priceTv.setText("Price");
+                }else{
+                    sortByArtist = true;
+                    Collections.sort(list, new Comparator<Event>() {
+                        @Override
+                        public int compare(Event t1, Event t2) {
+                            return t1.artist.compareToIgnoreCase(t2.artist);
+                        }
+                    });
+                    artistTv.setText("Artist >");
+                    dateTv.setText("Date");
+                    priceTv.setText("Price");
+                }
+                myAdapter.notifyDataSetChanged();
+                break;
+            case R.id.date:
+                sortByArtist = false;
+                sortByPrice = false;
+                if(sortByDate){
+                    sortByDate = false;
+                    Collections.reverse(list);
+                    dateTv.setText("Date <");
+                    artistTv.setText("Artist");
+                    priceTv.setText("Price");
+                }else{
+                    sortByDate = true;
+                    Collections.sort(list, new Comparator<Event>() {
+                        @Override
+                        public int compare(Event t1, Event t2) {
+                            return t1.date.compareToIgnoreCase(t2.date);
+                        }
+                    });
+                    dateTv.setText("Date >");
+                    artistTv.setText("Artist");
+                    priceTv.setText("Price");
+                }
+                myAdapter.notifyDataSetChanged();
+                break;
+            case R.id.price:
+                sortByDate = false;
+                sortByArtist = false;
+                if(sortByPrice){
+                    sortByPrice = false;
+                    Collections.reverse(list);
+                    priceTv.setText("Price <");
+                    artistTv.setText("Artist");
+                    dateTv.setText("Date");
+                }else{
+                    sortByPrice = true;
+                    Collections.sort(list, new Comparator<Event>() {
+                        @Override
+                        public int compare(Event t1, Event t2) {
+                            return t1.price.compareToIgnoreCase(t2.price);
+                        }
+                    });
+                    priceTv.setText("Price >");
+                    artistTv.setText("Artist");
+                    dateTv.setText("Date");
+                }
+                myAdapter.notifyDataSetChanged();
+                break;
             case R.id.yourTickets:
                 startActivity(new Intent(this, ProfileActivity.class));
                 break;
-//            case R.id.buyTicket1:
-//                buyTicket1();
         }
     }
 
-//    private void buyTicket1() {
-//        user = FirebaseAuth.getInstance().getCurrentUser();
-//        reference = FirebaseDatabase.getInstance().getReference("Users");
-//        userID = user.getUid();
-//
-//
-//        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                User userProfile = snapshot.getValue(User.class);
-//
-//                if(userProfile != null){
-//                    String ticket1 = userProfile.ticket1;
-//                    String ticket2 = userProfile.ticket2;
-//                    String ticket3 = userProfile.ticket3;
-//                    String ticket4 = userProfile.ticket4;
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(EventList.this, "Something wrong happened.", Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-//        HashMap hashMap1 = new HashMap();
-//        hashMap1.put("ticket1","ceza");
-//        reference.child(userID).updateChildren(hashMap1);
-
-
-
-
-
-
-//    }
 }

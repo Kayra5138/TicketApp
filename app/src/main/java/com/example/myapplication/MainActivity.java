@@ -9,10 +9,12 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView register, forgotPassword;
+//    private ImageView deneme;
     private EditText editTextEmail, editTextPassword;
     private Button signIn;
     private FirebaseAuth mAuth;
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        deneme = (ImageView) findViewById(R.id.deneme);
+//        String url = "https://i.imgur.com/6dIEQbq.jpeg";
+//        Glide.with(this).load(url).into(deneme);
 
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);

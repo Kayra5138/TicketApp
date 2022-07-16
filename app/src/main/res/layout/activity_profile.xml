@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
+
+
     <TextView
         android:id="@+id/welcome"
         android:layout_height="wrap_content"
@@ -34,41 +36,81 @@
         android:id="@+id/yourTicket1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="xd"
         app:layout_constraintTop_toBottomOf="@+id/yourTicketsTitle"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="50dp"
         android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/cancelButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel Ticket"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket1"
+        app:layout_constraintLeft_toLeftOf="@+id/yourTicket1"
         />
 
     <TextView
         android:id="@+id/yourTicket2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/yourTicket1"
+        android:text="xd"
+        app:layout_constraintTop_toBottomOf="@+id/cancelButton1"
         app:layout_constraintLeft_toLeftOf="@+id/yourTicket1"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/cancelButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel Ticket"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket2"
+        app:layout_constraintLeft_toLeftOf="@+id/yourTicket1"
         />
 
     <TextView
         android:id="@+id/yourTicket3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/yourTicket2"
+        android:text="xd"
+        app:layout_constraintTop_toBottomOf="@+id/cancelButton2"
         app:layout_constraintLeft_toLeftOf="@+id/yourTicket2"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/cancelButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel Ticket"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket3"
+        app:layout_constraintLeft_toLeftOf="@+id/yourTicket1"
         />
 
     <TextView
         android:id="@+id/yourTicket4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/yourTicket3"
+        android:text="xd"
+        app:layout_constraintTop_toBottomOf="@+id/cancelButton3"
         app:layout_constraintLeft_toLeftOf="@+id/yourTicket3"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/cancelButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel Ticket"
+        app:layout_constraintTop_toBottomOf="@+id/yourTicket4"
+        app:layout_constraintLeft_toLeftOf="@+id/yourTicket1"
         />
 
     <TextView
@@ -78,15 +120,24 @@
         android:text="Buy Tickets"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/yourTicket4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/signOut"
+        android:layout_marginBottom="10dp"
         />
 
-
-
-
+    <ImageView
+        android:id="@+id/qrcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:adjustViewBounds="true"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/yourTicketsTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buyTickets"
+        />
 
     <Button
         android:id="@+id/signOut"
@@ -98,8 +149,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="20dp"
         />
 
-    
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
