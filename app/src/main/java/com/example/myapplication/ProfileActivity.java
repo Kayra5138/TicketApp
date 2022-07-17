@@ -120,7 +120,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     ticket2 = userProfile.ticket2;
                     ticket3 = userProfile.ticket3;
                     ticket4 = userProfile.ticket4;
-                    welcomeTextView.setText("Welcome "+fullName+".");
+                    welcomeTextView.setText("Welcome "+fullName+".\nClick on a ticket to see its QR code.");
                 }
 
 
@@ -130,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Event event = snapshot.getValue(Event.class);
                             if(event != null){
-                                slot = event.getArtist() + " - " + event.getDate();
+                                slot = event.getArtist() + " - " + event.getDate() + " - €" + event.getPrice();
                                 yourTicket1TextView.setText(slot);
                             }
                         }
@@ -149,7 +149,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Event event = snapshot.getValue(Event.class);
                             if(event != null){
-                                slot = event.getArtist() + " - " + event.getDate();
+                                slot = event.getArtist() + " - " + event.getDate() + " - €" + event.getPrice();
                                 yourTicket2TextView.setText(slot);
                             }
                         }
@@ -168,7 +168,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Event event = snapshot.getValue(Event.class);
                             if(event != null){
-                                slot = event.getArtist() + " - " + event.getDate();
+                                slot = event.getArtist() + " - " + event.getDate() + " - €" + event.getPrice();
                                 yourTicket3TextView.setText(slot);
                             }
                         }
@@ -187,7 +187,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Event event = snapshot.getValue(Event.class);
                             if(event != null){
-                                slot = event.getArtist() + " - " + event.getDate();
+                                slot = event.getArtist() + " - " + event.getDate() + " - €" + event.getPrice();
                                 yourTicket4TextView.setText(slot);
                             }
                         }

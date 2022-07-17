@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
 import com.google.firebase.auth.FirebaseAuth;
@@ -85,10 +87,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.artistText.setText(event.getArtist());
         holder.dateText.setText(event.getDate());
         holder.priceText.setText(event.getPrice());
-        String url = "https://i.imgur.com/6dIEQbq.jpeg";
-        Log.d("demo",url);
-//        Glide.with(holder.imageView).load(url).into(holder.imageView);
-//        Picasso.get().load(url).into(holder.bannerImg);
+        String url = event.getBanner();
+//        Glide.with(holder.imageView.getContext()).load(url).centerCrop().fitCenter().into(holder.imageView);
+        Picasso.get().load(url).into(holder.imageView);
     }
 
 
@@ -108,7 +109,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             artistText = itemView.findViewById(R.id.tvArtist);
             dateText = itemView.findViewById(R.id.tvDate);
             priceText = itemView.findViewById(R.id.tvPrice);
-            imageView = itemView.findViewById(R.id.banner);
+            imageView = itemView.findViewById(R.id.eventBanner);
+//            Picasso.get().load("https://i.imgur.com/6dIEQbq.jpeg").into(imageView);
 
             buyButton = itemView.findViewById(R.id.buyButton);
             buyButton.setOnClickListener(this);
